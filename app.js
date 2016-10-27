@@ -28,7 +28,7 @@ app.use('/', lyftRoute);
 app.use('/', homeRoute);
 // app.use('/', uberRoute);
 
-app.listen(port, console.log('Server is listening on port ', port));
+app.listen(port, ()=> console.log('Server is listening on port ', port));
 
 // if ("geolocation" in navigator) {
 //    navigator.geolocation.getCurrentPosition((pos) => {

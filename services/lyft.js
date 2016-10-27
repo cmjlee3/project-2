@@ -68,7 +68,40 @@ const lyftLine = (req, res, next) => {
 }
 
 const costLyftLine = (token, start_lat, start_lng, end_lat, end_lng) => {
-  const query_url = COST + `?start_lat=${start_lat}&start_lng=${start_lng}&end_lat=${end_lat}&end_lng=${end_lng}&ride_type=lyft+line`
+  const query_url = COST + `?start_lat=${start_lat}&start_lng=${start_lng}&end_lat=${end_lat}&end_lng=${end_lng}&ride_type=lyft_line`
+  const headers = {
+    'Authorization': 'bearer ' + token
+  }
+
+  return fetch(query_url, {
+    method: 'GET',
+    headers: headers
+  })
+}
+
+const lyftPlus = (req, res, next) => {
+  fetch(API_URL, {
+    method: 'POST',
+    headers: headers,
+    body: dataString,
+  })
+  .then(r => r.json())
+  .then(json => json.access_token)
+  .then(token => costLyftPlus(token, req.query.start_lat, req.query.start_lng, req.query.end_lat, req.query.end_lng))
+  .then(r => r.json())
+  .then(result => {
+    console.log(result)
+    res.lyftPlus = result.cost_estimates[0].estimated_cost_cents_max;
+    next();
+  })
+  .catch((err) => {
+    res.error = err;
+    next();
+  });
+}
+
+const costLyftPlus = (token, start_lat, start_lng, end_lat, end_lng) => {
+  const query_url = COST + `?start_lat=${start_lat}&start_lng=${start_lng}&end_lat=${end_lat}&end_lng=${end_lng}&ride_type=lyft_plus`
   const headers = {
     'Authorization': 'bearer ' + token
   }
@@ -80,4 +113,4 @@ const costLyftLine = (token, start_lat, start_lng, end_lat, end_lng) => {
 }
 
 
-module.exports = { lyft, lyftLine };
+module.exports = { lyft, lyftLine, lyftPlus };
