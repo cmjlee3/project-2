@@ -1,11 +1,19 @@
 const router = require('express').Router();
-const { lyft } = require('../services/lyft');
+// const lyftShow = require('../services/lyft');
 
-router.get('/show', lyft, (req,res) => {
+const { lyft, lyftLine } = require('../services/lyft');
+
+// const displayLyft = lyftShow();
+
+router.get('/show', lyft, lyftLine, (req,res) => {
   res.render('./show', {
-    results: res.lyft
+    results: res.lyft,
+    resultsLine: res.lyftLine,
   });
 });
 
 
 module.exports = router;
+
+// db.Lyft.lyftLine,
+// , lyftLine
