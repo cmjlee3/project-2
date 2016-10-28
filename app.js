@@ -5,8 +5,24 @@ const logger                = require('morgan');
 const path                  = require('path');
 const bodyParser            = require('body-parser');
 const methodOverride        = require('method-override');
+
+
+const { lyft, lyftLine, lyftPlus }   = require('./services/lyft');
+// const dbService                      = require('./models/model');
+const { getRide, saveRide }          = require('./models/model')
 // const Uber                  = require('node-uber');
 // const uberMethod            = require('../models/uber')
+// const firebase = require("firebase/app");
+// require("firebase/auth");
+// require("firebase/database");
+
+// Leave out Storage
+//require("firebase/storage");
+
+// const config = {
+//   // ...
+// };
+// firebase.initializeApp(config);
 
 const app                   = express();
 const port                  = process.argv[2] || process.env.PORT || 3000;
@@ -28,14 +44,9 @@ app.use('/', lyftRoute);
 app.use('/', homeRoute);
 // app.use('/', uberRoute);
 
+
 app.listen(port, ()=> console.log('Server is listening on port ', port));
 
-// if ("geolocation" in navigator) {
-//    navigator.geolocation.getCurrentPosition((pos) => {
-//      console.log("in navigator");
-//      document.querySelector("#location").innerHTML = `Latitude: ${pos.coords.latitude}\n Longitude: ${pos.coords.longitude}`;
-//    });
-//  };
 
 app.use(express.static(path.join(__dirname, 'public')));
 

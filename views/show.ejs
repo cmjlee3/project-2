@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Prices</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+<body id="page2">
 
-<h1>Car fare compare</h1>
-    <p>Lyft: $ <%= results / 100 %> </p>
-    <p>Lyft-line: $ <%= resultsLine / 100 %> </p>
-    <p>Lyft-plus: $ <%= resultsPlus / 100 %> </p>
+  <h1>Car fare compare</h1>
+    <p>Lyft: $ <%= results %> </p>
+    <p>Lyft-line: $ <%= resultsLine %> </p>
+    <p>Lyft-plus: $ <%= resultsPlus  %> </p>
+
+  <form action="/show" method='POST'>
+    <input type="hidden" name="ride[lyft]" value="<%= results %>" />
+    <input type="hidden" name="ride[lyftLine]" value="<%= resultsLine %>" />
+    <input type="hidden" name="ride[lyftPlus]" value="<%= resultsPlus %>" />
+    <input type="submit" value="Select ride!">
+  </form>
+
+  <!-- <p>Lyft: $ <%# resmongo[0].lyft %> </p> -->
+
+
+
+    </ul>
+    </div>
 
 </body>
 </html>

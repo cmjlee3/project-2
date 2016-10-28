@@ -90,7 +90,7 @@ const lyftPlus = (req, res, next) => {
   .then(token => costLyftPlus(token, req.query.start_lat, req.query.start_lng, req.query.end_lat, req.query.end_lng))
   .then(r => r.json())
   .then(result => {
-    console.log(result)
+    // console.log(result)
     res.lyftPlus = result.cost_estimates[0].estimated_cost_cents_max;
     next();
   })
