@@ -5,6 +5,9 @@ const logger                = require('morgan');
 const path                  = require('path');
 const bodyParser            = require('body-parser');
 const methodOverride        = require('method-override');
+const session               = require('express-session');
+const cookieParser          = require('cookie-parser');
+const SECRET                = 'tacos3000';
 
 
 const { lyft, lyftLine, lyftPlus }   = require('./services/lyft');
@@ -34,15 +37,31 @@ app.use(methodOverride('_method'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(bodyParser.json());
+
+app.use(cookieParser());
+
+app.use(session({
+  resave: false,
+  saveUninitialized: false,
+  secret: SECRET
+}));
 app.use(logger('dev'));
 
 const lyftRoute = require('./routes/lyft');
-const homeRoute = require('./routes/home');
-// const uberRoute = require('./routes/uber')
+// const homeRoute = require('./routes/home');
+const authRoute = require('./routes/auth');
+const userRoute= require('./routes/user');
+const indexRoute=require('./routes/index');
 
-app.use('/', lyftRoute);
-app.use('/', homeRoute);
-// app.use('/', uberRoute);
+
+app.use('/show', lyftRoute);
+// app.use('/', homeRoute);
+app.use('/auth', authRoute);
+app.use('/users', userRoute);
+app.use('/', indexRoute);
+
+
 
 
 app.listen(port, ()=> console.log('Server is listening on port ', port));

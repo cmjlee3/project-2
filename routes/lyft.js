@@ -3,11 +3,11 @@ const router = require('express').Router();
 
 const { lyft, lyftLine, lyftPlus } = require('../services/lyft');
 
-const { getRide, saveRide } = require('../models/model');
+const { getRide, saveRide }        = require('../models/model');
 
 // const displayLyft = lyftShow();
 
-router.get('/show', lyft, lyftLine, lyftPlus, saveRide, (req,res) => {
+router.get('/', lyft, lyftLine, lyftPlus, (req,res) => {
   res.render('./show', {
     results: res.lyft,
     resultsLine: res.lyftLine,
@@ -15,16 +15,17 @@ router.get('/show', lyft, lyftLine, lyftPlus, saveRide, (req,res) => {
   });
 });
 
-router.post('/show', getRide, (req, res) => {
-  console.log(res.saved);
-  res.redirect('/show');
-})
+// router.post('/show', getRide, (req, res) => {
+//   // console.log(res.saved);
+//   res.redirect('/show');
+// })
 
-router.get('/show', saveRide, (req,res) => {
-  res.render('./show', {
-    resmongo: res.search,
-  });
-});
+// router.get('/show', saveRide, (req,res) => {
+//   console.log(res.search);
+//   // res.render('./show', {
+//   //   selected: res.search || [],
+//   // });
+// });
 
 // router.delete('/ride/:id', deleteRide, (req, res) => {
 //   res.redirect('/show');

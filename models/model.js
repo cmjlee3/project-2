@@ -1,13 +1,14 @@
-const { MongoClient }     = require('mongodb');
 const { ObjectID }        = require('mongodb');
+const { getDB }           = require('../lib/dbConnect.js');
 
 const dbConnection        = 'mongodb://localhost:27017/Lyft';
 
 function getRide(req, res, next) {
-  MongoClient.connect(dbConnection, (err, db) => {
+  getDB().then((db) => {
     if (err) return next(err);
     // console.log(req.body.ride);
     db.collection('ride')
+     // .find({ userId: { $eq: req.session.userId } })
      .insert(req.body.ride, (insertErr, result) => {
       if (insertErr) return next(insertErr);
       res.saved = result;
@@ -21,7 +22,7 @@ function getRide(req, res, next) {
 };
 
 function saveRide(req, res, next) {
-  MongoClient.connect(dbConnection, (err, db) => {
+  getDB().then((db) => {
     if (err) return next(err);
     // console.log(req.body.ride);
     db.collection('ride')
@@ -41,25 +42,25 @@ function saveRide(req, res, next) {
   return false;
 }
 
-function deleteRide(req, res, next) {
-  MongoClient.connect(dbConnection, (err, db) => {
-    if (err) return next(err);
+// function deleteRide(req, res, next) {
+//   getDB().then((db) => {
+//     if (err) return next(err);
 
-    db.collection('ride')
-      .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, doc) => {
-        if(removeErr) return next(removeErr);
+//     db.collection('ride')
+//       .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, doc) => {
+//         if(removeErr) return next(removeErr);
 
-        res.removed = doc;
-        db.close();
-        return next();
-      });
-      return false;
-  });
-  return false;
-}
+//         res.removed = doc;
+//         db.close();
+//         return next();
+//       });
+//       return false;
+//   });
+//   return false;
+// }
 
 module.exports = {
   getRide,
   saveRide,
-  deleteRide
+  // deleteRide
 };

@@ -11,15 +11,14 @@
     <p>Lyft-line: $ <%= resultsLine %> </p>
     <p>Lyft-plus: $ <%= resultsPlus  %> </p>
 
+    <!-- <p> <%# selected %> </p> -->
+
   <form action="/show" method='POST'>
     <input type="hidden" name="ride[lyft]" value="<%= results %>" />
     <input type="hidden" name="ride[lyftLine]" value="<%= resultsLine %>" />
     <input type="hidden" name="ride[lyftPlus]" value="<%= resultsPlus %>" />
     <input type="submit" value="Select ride!">
   </form>
-
-  <!-- <p>Lyft: $ <%# resmongo[0].lyft %> </p> -->
-
 
 
     </ul>
