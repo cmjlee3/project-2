@@ -1,6 +1,7 @@
 const fetch             = require('node-fetch');
 const API_URL           = 'https://api.lyft.com/oauth/token'
 const COST              = 'https://api.lyft.com/v1/cost'
+// const ETA               = 'https://api.lyft.com/v1/eta'
 
 API_ID =process.env.LYFT_ID
 API_SECRET = process.env.LYFT_SECRET
@@ -46,6 +47,41 @@ const costLyft = (token, start_lat, start_lng, end_lat, end_lng) => {
     headers: headers
   })
 }
+
+// const lyftTime = (req, res, next) => {
+//   fetch(API_URL, {
+//     method: 'POST',
+//     headers: headers,
+//     body: dataString,
+//   })
+//   .then(r => r.json())
+//   .then(json => json.access_token)
+//   .then(token => etaLyft(token, req.query.start_lat, req.query.start_lng, req.query.end_lat, req.query.end_lng))
+//   .then(r => r.json())
+//   .then(result => {
+//     console.log(result)
+//     res.lyftTime = result.eta_estimates[0].eta_seconds;
+//     next();
+//   })
+//   .catch((err) => {
+//     res.error = err;
+//     next();
+//   });
+// }
+
+// const etaLyft = (token, start_lat, start_lng) => {
+//   const query_urls = ETA + `?start_lat=${start_lat}&start_lng=${start_lng}&end_lat=${end_lat}&end_lng=${end_lng}&ride_type=lyft_line`
+//   const headers = {
+//     'Authorization': 'bearer ' + token
+//   }
+
+//   return fetch(query_urls, {
+//     method: 'GET',
+//     headers: headers
+//   })
+// }
+
+
 
 const lyftLine = (req, res, next) => {
   fetch(API_URL, {
@@ -111,6 +147,8 @@ const costLyftPlus = (token, start_lat, start_lng, end_lat, end_lng) => {
     headers: headers
   })
 }
+
+
 
 
 module.exports = { lyft, lyftLine, lyftPlus };

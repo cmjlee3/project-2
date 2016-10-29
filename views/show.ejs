@@ -7,22 +7,27 @@
 <body id="page2">
 
   <h1>Car fare compare</h1>
-    <p>Lyft: $ <%= results %> </p>
-    <p>Lyft-line: $ <%= resultsLine %> </p>
-    <p>Lyft-plus: $ <%= resultsPlus  %> </p>
+    <p>Lyft: $ <%= results /100 %> </p>
+    <p>Lyft-line: $ <%= resultsLine /100 %> </p>
+    <p>Lyft-plus: $ <%= resultsPlus /100  %> </p>
+
 
     <!-- <p> <%# selected %> </p> -->
-
   <form action="/show" method='POST'>
     <input type="hidden" name="ride[lyft]" value="<%= results %>" />
-    <input type="hidden" name="ride[lyftLine]" value="<%= resultsLine %>" />
-    <input type="hidden" name="ride[lyftPlus]" value="<%= resultsPlus %>" />
-    <input type="submit" value="Select ride!">
+    <input type="submit" value="Select lyft!">
   </form>
 
+  <form action="/show" method='POST'>
+    <input type="hidden" name="ride[lyftLine]" value="<%= resultsLine %>" />
+    <input type="submit" value="Select Lyft Line!">
+  </form>
 
-    </ul>
-    </div>
+  <form action="/show" method='POST'>
+    <input type="hidden" name="ride[lyftPlus]" value="<%= resultsPlus %>" />
+    <input type="submit" value="Select Lyft Plus!">
+  </form>
+
 
 </body>
 </html>
