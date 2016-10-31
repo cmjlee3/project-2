@@ -26,7 +26,7 @@ const { getRide, saveRide }          = require('./models/model')
 // firebase.initializeApp(config);
 
 const app                   = express();
-const port                  = process.argv[2] || process.env.PORT || 3000;
+const port                  = process.env[2] || process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
