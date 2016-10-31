@@ -8,7 +8,6 @@
   background-size: cover;
   background-size: 100%;
   color: white;
-
 }
 #home a{
   color: white;
@@ -31,17 +30,24 @@
   background-size: cover;
   background-size: 100%;
   color: white;
-  /*display: flex;*/
-/*  justify-content: center;
-  align-items: center;*/
+}
+#page1 h1{
+  text-align: center;
+}
+#page1 h4{
+  text-align: center;
+}
+#page1 .location{
+  text-align: center;
 }
 #page2 {
   background-image: url("../images/sf.jpg");
   background-size: cover;
   background-size: 100%;
-  /*display: flex;
-  justify-content: center;
-  align-items: center;*/
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
+  flex: wrap;
 }
 #page3 {
   background-image: url("../images/sf.jpg");

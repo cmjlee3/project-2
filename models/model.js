@@ -2,7 +2,7 @@
 const { MongoClient, ObjectID }     = require('mongodb');
 // const { getDB }           = require('../lib/dbConnect.js');
 
-const dbConnection        = process.env.MONGODB_URI || 'mongodb://localhost:27017/Lyft';
+const dbConnection                  = process.env.MONGODB_URI || 'mongodb://localhost:27017/Lyft';
 
 function getRide(req, res, next) {
   MongoClient.connect(dbConnection, (err, db) => {
@@ -12,6 +12,7 @@ function getRide(req, res, next) {
      // .find({ userId: { $eq: req.session.userId } })
      .insert(req.body.ride, (insertErr, result) => {
       if (insertErr) return next(insertErr);
+      // console.log(res.saved);
       res.saved = result;
       db.close();
       // console.log(res.saved);
@@ -34,9 +35,9 @@ function saveRide(req, res, next) {
         if(arrayError) return next(arrayError);
 
         // return the data
+        console.log('======='+res.search);
         res.search = data;
         db.close();
-        console.log(res.search);
         return next();
       });
       return false;
@@ -45,6 +46,7 @@ function saveRide(req, res, next) {
 }
 
 function deleteRide(req, res, next) {
+  console.log('=========' +req.params.id)
   getDB().then((db) => {
     if (err) return next(err);
 
@@ -53,6 +55,7 @@ function deleteRide(req, res, next) {
         if(removeErr) return next(removeErr);
 
         res.removed = doc;
+        // console.log("from models =====" + res.removed);
         db.close();
         return next();
       });
