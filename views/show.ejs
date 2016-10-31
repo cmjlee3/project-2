@@ -13,21 +13,24 @@
 
 
     <!-- <p> <%# selected %> </p> -->
-  <form action="/show" method='POST'>
+  <form action="/show/lyft" method='POST'>
     <input type="hidden" name="ride[lyft]" value="<%= results %>" />
     <input type="submit" value="Select lyft!">
   </form>
 
-  <form action="/show" method='POST'>
+  <form action="/show/lyftLine" method='POST'>
     <input type="hidden" name="ride[lyftLine]" value="<%= resultsLine %>" />
     <input type="submit" value="Select Lyft Line!">
   </form>
 
-  <form action="/show" method='POST'>
+  <form action="/show/LyftPlus" method='POST'>
     <input type="hidden" name="ride[lyftPlus]" value="<%= resultsPlus %>" />
     <input id="button" type="submit" value="Select Lyft Plus!">
   </form>
-
+<!--
+  <form action="/show/<%# ride[i]._id %>?_method=DELETE" method="POST">
+    <input type="submit" value="Delete">
+  </form> -->
 
    <!--  <h5>Selected: </h5>
     <div class="lyft">

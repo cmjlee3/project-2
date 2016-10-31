@@ -3,9 +3,8 @@ const router = require('express').Router();
 
 const { lyft, lyftLine, lyftPlus } = require('../services/lyft');
 
-const { getRide, saveRide }        = require('../models/model');
-
-// const displayLyft = lyftShow();
+const { getRide, saveRide, deleteRide  }        = require('../models/model');
+// deleteRide
 
 router.get('/', lyft, lyftLine, lyftPlus, (req,res) => {
   res.render('./show', {
@@ -15,24 +14,34 @@ router.get('/', lyft, lyftLine, lyftPlus, (req,res) => {
   });
 });
 
-// router.post('/', getRide, (req, res) => {
-//     console.log(res.saved);
-//     res.render('./resultsLyft', {
-//     results: res.saved.ops[0].lyft || [],
-//   });
-//     res.render('./resultsLine', {
-//       resultsLine: res.saved.ops[0].lyftLine || [],
-//     });
-//     res.render('./resultsPlus', {
-//       resultsPlus: res.saved.ops[0].lyftPlus || [],
-//     });
-// })
+router.post('/lyft', getRide, (req, res) => {
 
-router.post('/', getRide, (req, res) => {
-  res.redirect('./show', {
-    results: res.search || [],
+  res.render('./resultsLyft', {
+      results: res.saved.ops[0].lyft || [],
+      // resultsLine: res.saved.ops[0].lyftLine || [],
+      // resultsPlus: res.saved.ops[0].lyftPlus || [],
   });
 });
+router.post('/lyftLine', getRide, (req, res) => {
+
+  res.render('./resultsLine', {
+      // results: res.saved.ops[0].lyft || [],
+      resultsLine: res.saved.ops[0].lyftLine || [],
+      // resultsPlus: res.saved.ops[0].lyftPlus || [],
+  });
+});
+router.post('/lyftPlus', getRide, (req, res) => {
+
+  res.render('./resultsPlus', {
+      // results: res.saved.ops[0].lyft || [],
+      // resultsLine: res.saved.ops[0].lyftLine || [],
+      resultsPlus: res.saved.ops[0].lyftPlus || [],
+  });
+});
+
+// router.post('/', saveRide, getRide, (req, res) => {
+//   res.redirect('./show');
+// });
 // router.post('/', getRide, lyftLine, (req, res) => {
 
 
@@ -51,9 +60,9 @@ router.post('/', getRide, (req, res) => {
 //   });
 // });
 
-// router.delete('/ride/:id', deleteRide, (req, res) => {
-//   res.redirect('/show');
-// });
+router.delete('/ride/:id', getRide, deleteRide, (req, res) => {
+  res.redirect('/show');
+});
 
 module.exports = router;
 

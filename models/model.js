@@ -1,5 +1,5 @@
 // const { ObjectID }        = require('mongodb');
-const { MongoClient }     = require('mongodb');
+const { MongoClient, ObjectID }     = require('mongodb');
 // const { getDB }           = require('../lib/dbConnect.js');
 
 const dbConnection        = process.env.MONGODB_URI || 'mongodb://localhost:27017/Lyft';
@@ -44,25 +44,25 @@ function saveRide(req, res, next) {
   return false;
 }
 
-// function deleteRide(req, res, next) {
-//   getDB().then((db) => {
-//     if (err) return next(err);
+function deleteRide(req, res, next) {
+  getDB().then((db) => {
+    if (err) return next(err);
 
-//     db.collection('ride')
-//       .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, doc) => {
-//         if(removeErr) return next(removeErr);
+    db.collection('ride')
+      .findAndRemove({ _id: ObjectID(req.params.id) }, (removeErr, doc) => {
+        if(removeErr) return next(removeErr);
 
-//         res.removed = doc;
-//         db.close();
-//         return next();
-//       });
-//       return false;
-//   });
-//   return false;
-// }
+        res.removed = doc;
+        db.close();
+        return next();
+      });
+      return false;
+  });
+  return false;
+}
 
 module.exports = {
   getRide,
-  // saveRide,
-  // deleteRide
+  saveRide,
+  deleteRide
 };

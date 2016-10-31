@@ -53,6 +53,7 @@ function positionAddress(str) {
 
 function initialize() {
   var latLng = new google.maps.LatLng(37.769, -122.446);
+  var latLngB = new google.maps.LatLng(38.769, -123.446);
   var map = new google.maps.Map(document.getElementById('mapCanvas'), {
     zoom: 12,
     center: latLng,
@@ -61,6 +62,13 @@ function initialize() {
   var marker = new google.maps.Marker({
     position: latLng,
     title: 'Point A',
+    map: map,
+    draggable: true
+  });
+
+    var markerB = new google.maps.Marker({
+    position: latLngB,
+    title: 'Point B',
     map: map,
     draggable: true
   });
