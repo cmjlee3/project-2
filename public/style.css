@@ -18,11 +18,53 @@
   background-size: 100%;
   color: white;
 }
+#login h1{
+  text-align: center;
+  font-size: 120px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  margin-top: 230px;
+}
+#login .loginStuff{
+  margin-top: 20px;
+  margin-left: 500px;
+}
+#login input{
+  font-size: 18px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  font-family: 'Buenard', serif;
+  font-family: 'Habibi', serif;
+  font-family: 'Buda', cursive;
+}
 #signup {
   background-image: url("../images/daysf.jpg");
   background-size: cover;
   background-size: 100%;
   color: white;
+}
+#signup h1{
+  text-align: center;
+  font-size: 120px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  margin-top: 230px;
+}
+#signup .signupStuff{
+  margin-top: 20px;
+  margin-left: 500px;
+}
+#signup input{
+  font-size: 18px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  font-family: 'Buenard', serif;
+  font-family: 'Habibi', serif;
+  font-family: 'Buda', cursive;
 }
 #page1 {
   background-image: url("../images/daysf.jpg");
