@@ -2,7 +2,7 @@
 const { MongoClient, ObjectID }     = require('mongodb');
 // const { getDB }           = require('../lib/dbConnect.js');
 
-const dbConnection                  = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/Lyft';
+const dbConnection                  = process.env.MONGODB_URI || 'mongodb://localhost:27017/Lyft';
 
 function getRide(req, res, next) {
   MongoClient.connect(dbConnection, (err, db) => {
