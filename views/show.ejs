@@ -6,27 +6,28 @@
 </head>
 <body id="page2">
 
-  <h1>Car fare compare</h1><br>
-    <p>Lyft: $ <%= results /100 %> </p><br>
-    <p>Lyft-line: $ <%= resultsLine /100 %> </p><br>
+  <h1>Car fare compare</h1>
+
+    <p>Lyft: $ <%= results /100 %> </p>
+
+      <form action="/show/lyft" method='POST'>
+        <input type="hidden" name="ride[lyft]" value="<%= results %>" />
+        <input id="button1" type="submit" value="Select lyft!">
+      </form>
+
+    <p>Lyft-line: $ <%= resultsLine /100 %> </p>
+
+      <form action="/show/lyftLine" method='POST'>
+        <input type="hidden" name="ride[lyftLine]" value="<%= resultsLine %>" />
+        <input id="button2" type="submit" value="Select Lyft Line!">
+      </form>
+
     <p>Lyft-plus: $ <%= resultsPlus /100  %> </p>
 
-
-    <!-- <p> <%# selected %> </p> -->
-  <form action="/show/lyft" method='POST'>
-    <input type="hidden" name="ride[lyft]" value="<%= results %>" />
-    <input type="submit" value="Select lyft!">
-  </form>
-
-  <form action="/show/lyftLine" method='POST'>
-    <input type="hidden" name="ride[lyftLine]" value="<%= resultsLine %>" />
-    <input type="submit" value="Select Lyft Line!">
-  </form>
-
-  <form action="/show/LyftPlus" method='POST'>
-    <input type="hidden" name="ride[lyftPlus]" value="<%= resultsPlus %>" />
-    <input id="button" type="submit" value="Select Lyft Plus!">
-  </form>
+      <form action="/show/LyftPlus" method='POST'>
+        <input type="hidden" name="ride[lyftPlus]" value="<%= resultsPlus %>" />
+        <input id="button3" type="submit" value="Select Lyft Plus!">
+      </form>
 <!--
   <form action="/show/<%# ride[i]._id %>?_method=DELETE" method="POST">
     <input type="submit" value="Delete">

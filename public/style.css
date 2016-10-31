@@ -30,12 +30,24 @@
   background-size: cover;
   background-size: 100%;
   color: white;
+
 }
 #page1 h1{
   text-align: center;
+  font-size: 50px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
 }
 #page1 h4{
   text-align: center;
+  font-family: 'Petit Formal Script', cursive;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  font-family: 'Buenard', serif;
+  font-family: 'Habibi', serif;
+  font-family: 'Buda', cursive;
 }
 #page1 .location{
   text-align: center;
@@ -44,10 +56,28 @@
   background-image: url("../images/sf.jpg");
   background-size: cover;
   background-size: 100%;
-  display: flex;
-  /*justify-content: center;*/
+  /*display: flex;
+  justify-content: center;
   align-items: center;
-  flex: wrap;
+  flex: wrap;*/
+}
+#page2 h1{
+  margin-left: 40%;
+}
+#page2 p{
+  /*float: left;*/
+  padding: 20px;
+  margin-left: 43%;
+  margin-top: 75px;
+}
+#page2 input{
+  /*float: left;
+  margin-top: 40px;*/
+  margin-left: 45%;
+
+}
+#page2 #button1{
+
 }
 #page3 {
   background-image: url("../images/sf.jpg");

@@ -44,6 +44,7 @@ app.use(session({
   saveUninitialized: false,
   secret: SECRET
 }));
+
 app.use(logger('dev'));
 
 const lyftRoute = require('./routes/lyft');
