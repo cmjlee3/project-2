@@ -1,8 +1,51 @@
-body {
+/*body {
   background-color: blue;
 
-}
+}*/
+#home {
+  background-image: url("../images/daysf.jpg");
+  /*background-color: blue;*/
+  background-size: cover;
+  background-size: 100%;
+  color: white;
 
+}
+#home a{
+  color: white;
+}
+#login {
+  background-image: url("../images/daysf.jpg");
+  background-size: cover;
+  background-size: 100%;
+  color: white;
+}
+#signup {
+  background-image: url("../images/daysf.jpg");
+  background-size: cover;
+  background-size: 100%;
+  color: white;
+}
+#page1 {
+  background-image: url("../images/daysf.jpg");
+  /*background-color: blue;*/
+  background-size: cover;
+  background-size: 100%;
+  color: white;
+  /*display: flex;*/
+/*  justify-content: center;
+  align-items: center;*/
+}
 #page2 {
-  background-color: pink;
+  background-image: url("../images/sf.jpg");
+  background-size: cover;
+  background-size: 100%;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+}
+#page3 {
+  background-image: url("../images/sf.jpg");
+  background-size: cover;
+  background-size: 100%;
+
 }
