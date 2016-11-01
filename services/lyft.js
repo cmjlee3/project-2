@@ -1,20 +1,23 @@
+// Lyft API setup with help from friend, Trevor Sontag.
+
 const fetch             = require('node-fetch');
 const API_URL           = 'https://api.lyft.com/oauth/token'
 const COST              = 'https://api.lyft.com/v1/cost'
 // const ETA               = 'https://api.lyft.com/v1/eta'
 
-API_ID =process.env.LYFT_ID
-API_SECRET = process.env.LYFT_SECRET
+// API_ID =process.env.LYFT_ID
+// API_SECRET = process.env.LYFT_SECRET
 
+//// required id and secret used by api, buffer format found on google, keys and id don't need to be private.
 const headers = {
     'Content-Type': 'application/json',
     'Authorization': 'Basic ' + new Buffer('yIsE61L1caaT:Pz3-niKYG7gKFKtIbeATsSWq2LfGxuMp').toString("base64")
 };
 
-// new Buffer(API_ID:API_SECRET).toString("base64")
-
+//// require dependencies used by api
 const dataString = '{"grant_type": "client_credentials", "scope": "public"}';
 
+//function for price of lyft
 const lyft = (req, res, next) => {
   fetch(API_URL, {
     method: 'POST',
@@ -34,8 +37,8 @@ const lyft = (req, res, next) => {
     next();
   });
 }
-// req.query.start_lat, req.query.start_lng, req.query.end_lat, req.query.end_lng
-// 37.7772, -122.4233, 37.7972, -122.4533
+
+//required syntax layout in order to use query params for cost calculation
 const costLyft = (token, start_lat, start_lng, end_lat, end_lng) => {
   const query_url = COST + `?start_lat=${start_lat}&start_lng=${start_lng}&end_lat=${end_lat}&end_lng=${end_lng}&ride_type=lyft`
   const headers = {
@@ -47,6 +50,8 @@ const costLyft = (token, start_lat, start_lng, end_lat, end_lng) => {
     headers: headers
   })
 }
+
+//attempt at using api to calculate ETA
 
 // const lyftTime = (req, res, next) => {
 //   fetch(API_URL, {
@@ -81,8 +86,7 @@ const costLyft = (token, start_lat, start_lng, end_lat, end_lng) => {
 //   })
 // }
 
-
-
+//function for price of lyftline
 const lyftLine = (req, res, next) => {
   fetch(API_URL, {
     method: 'POST',
@@ -103,6 +107,7 @@ const lyftLine = (req, res, next) => {
   });
 }
 
+//required syntax layout in order to use query params for cost calculation
 const costLyftLine = (token, start_lat, start_lng, end_lat, end_lng) => {
   const query_url = COST + `?start_lat=${start_lat}&start_lng=${start_lng}&end_lat=${end_lat}&end_lng=${end_lng}&ride_type=lyft_line`
   const headers = {
@@ -115,6 +120,7 @@ const costLyftLine = (token, start_lat, start_lng, end_lat, end_lng) => {
   })
 }
 
+//function for price of lyftPlus
 const lyftPlus = (req, res, next) => {
   fetch(API_URL, {
     method: 'POST',
@@ -136,6 +142,7 @@ const lyftPlus = (req, res, next) => {
   });
 }
 
+//required syntax layout in order to use query params for cost calculation
 const costLyftPlus = (token, start_lat, start_lng, end_lat, end_lng) => {
   const query_url = COST + `?start_lat=${start_lat}&start_lng=${start_lng}&end_lat=${end_lat}&end_lng=${end_lng}&ride_type=lyft_plus`
   const headers = {

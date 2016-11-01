@@ -47,29 +47,7 @@ router.delete('/lyft/:id', deleteRide, (req, res) => {
   res.redirect('show');
 });
 
-// router.post('/', saveRide, getRide, (req, res) => {
-//   res.redirect('./show');
-// });
-// router.post('/', getRide, lyftLine, (req, res) => {
-
-
-// })
-// router.post('/', getRide, lyftPlus, (req, res) => {
-//   res.render('./results', {
-//      resultsPlus: res.lyftPlus || [],
-//   });
-
-// })
-// router.get('/show', getRide, saveRide, (req,res) => {
-//   console.log(res.search);
-//    res.render('./results', {
-//     selected: res.search || [],
-
-//   });
-// });
 
 
 module.exports = router;
 
-// db.Lyft.lyftLine,
-// , lyftLine

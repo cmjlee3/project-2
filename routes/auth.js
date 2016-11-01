@@ -1,3 +1,5 @@
+// this tempalte was provided by the instructors at General Assembly
+
 
 /* eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }] */
 /* eslint no-param-reassign: ["error", { "props": false }] */

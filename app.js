@@ -1,3 +1,4 @@
+//install dependencies
 require('dotenv').config();
 const express               = require('express');
 const logger                = require('morgan');
@@ -8,35 +9,32 @@ const session               = require('express-session');
 const cookieParser          = require('cookie-parser');
 const SECRET                = 'tacos3000';
 
+//connection to services
 const { lyft, lyftLine, lyftPlus }   = require('./services/lyft');
-// const dbService                      = require('./models/model');
+
+// connection to model                   = require('./models/model');
 const { getRide, saveRide }          = require('./models/model')
 // const Uber                  = require('node-uber');
 // const uberMethod            = require('../models/uber')
-// const firebase = require("firebase/app");
-// require("firebase/auth");
-// require("firebase/database");
 
-// Leave out Storage
-//require("firebase/storage");
-
-// const config = {
-//   // ...
-// };
-// firebase.initializeApp(config);
-
+//initializing express server
 const app                   = express();
 const port                  = process.env[2] || process.env.PORT || 3000;
 
+//setting view engine to ejs
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+//for css
 app.use(methodOverride('_method'));
 
+//for css
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//for css
 app.use(bodyParser.json());
 
+//reads cookie from brower
 app.use(cookieParser());
 
 app.use(session({
@@ -47,14 +45,14 @@ app.use(session({
 
 app.use(logger('dev'));
 
+//link to routes
 const lyftRoute = require('./routes/lyft');
-// const homeRoute = require('./routes/home');
 const authRoute = require('./routes/auth');
 const userRoute= require('./routes/user');
 const indexRoute=require('./routes/index');
 
+//call to routes
 app.use('/show', lyftRoute);
-// app.use('/', homeRoute);
 app.use('/auth', authRoute);
 app.use('/users', userRoute);
 app.use('/', indexRoute);

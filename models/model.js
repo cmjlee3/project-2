@@ -1,9 +1,9 @@
-// const { ObjectID }        = require('mongodb');
 const { MongoClient, ObjectID }     = require('mongodb');
-// const { getDB }           = require('../lib/dbConnect.js');
 
+// links to the mongo db
 const dbConnection                  = process.env.MONGODB_URI || 'mongodb://localhost:27017/Lyft';
 
+//Retrieves data from the API and stores it into Mongo
 function getRide(req, res, next) {
   MongoClient.connect(dbConnection, (err, db) => {
     if (err) return next(err);
@@ -23,6 +23,7 @@ function getRide(req, res, next) {
   return false;
 };
 
+//Takes the stored mongo data and renders it to the next page in order to save.
 function saveRide(req, res, next) {
   const filterObj = {};
   MongoClient.connect(dbConnection, (err, db) => {
@@ -45,6 +46,7 @@ function saveRide(req, res, next) {
   return false;
 }
 
+//deletes the saved favorite
 function deleteRide(req, res, next) {
   console.log('=========' +req.params.id)
   getDB().then((db) => {
