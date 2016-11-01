@@ -4,14 +4,52 @@
 }*/
 #home {
   background-image: url("../images/daysf.jpg");
-  /*background-color: blue;*/
   background-size: cover;
   background-size: 100%;
   color: white;
 }
 #home a{
   color: white;
+  font-size: 33px;
+  padding-top: -80px;
+  padding: 10px;
 }
+#home #login{
+  width: 240px;
+  text-align: center;
+  margin-left: 42%;
+  font-size: 18px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  font-family: 'Buenard', serif;
+  font-family: 'Habibi', serif;
+  font-family: 'Buda', cursive;
+}
+#home h1 {
+  text-align: center;
+  font-size: 120px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  margin-top: 230px;
+}
+#home h1:hover {
+  color: hotpink;
+}
+#home a{
+
+}
+#home input{
+  font-size: 18px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  font-family: 'Buenard', serif;
+  font-family: 'Habibi', serif;
+  font-family: 'Buda', cursive;
+}
+
 #login {
   background-image: url("../images/daysf.jpg");
   background-size: cover;
@@ -25,6 +63,9 @@
   font-family: 'Stardos Stencil', cursive;
   font-family: 'Londrina Outline', cursive;
   margin-top: 230px;
+}
+#login h1:hover {
+  color: hotpink;
 }
 #login .loginStuff{
   margin-top: 20px;
@@ -45,13 +86,16 @@
   background-size: 100%;
   color: white;
 }
-#signup h1{
+#signup h1 {
   text-align: center;
   font-size: 120px;
   font-family: 'Kurale', serif;
   font-family: 'Stardos Stencil', cursive;
   font-family: 'Londrina Outline', cursive;
   margin-top: 230px;
+}
+#signup h1:hover {
+  color: hotpink;
 }
 #signup .signupStuff{
   margin-top: 20px;
@@ -72,19 +116,26 @@
   background-size: cover;
   background-size: 100%;
   color: white;
+  margin-top: 40px;
 
 }
 #page1 h1{
   text-align: center;
-  font-size: 50px;
+  margin: 0 auto;
+  font-size: 60px;
   font-family: 'Kurale', serif;
   font-family: 'Stardos Stencil', cursive;
   font-family: 'Londrina Outline', cursive;
+  box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.9);
+  width: 810px;
+}
+#page1 h1:hover {
+  color: hotpink;
 }
 #page1 h4{
   text-align: center;
   font-family: 'Petit Formal Script', cursive;
-  font-size: 18px;
+  font-size: 25px;
   font-family: 'Kurale', serif;
   font-family: 'Stardos Stencil', cursive;
   font-family: 'Londrina Outline', cursive;
@@ -92,39 +143,212 @@
   font-family: 'Habibi', serif;
   font-family: 'Buda', cursive;
 }
+#page1 h4:hover {
+  color: hotpink;
+}
 #page1 .location{
   text-align: center;
 }
 #page2 {
-  background-image: url("../images/sf.jpg");
+  background-image: url("../images/ggbridge.jpg");
   background-size: cover;
   background-size: 100%;
+  color: white;
+  margin-top: 40px;
   /*display: flex;
   justify-content: center;
   align-items: center;
   flex: wrap;*/
 }
+
 #page2 h1{
-  margin-left: 40%;
+  /*margin-left: 40%;*/
+  margin: 0 auto;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 80px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  /*margin-bottom:*/
+  width: 700px;
+  box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.9);
+}
+#page2 h1:hover {
+  color: hotpink;
 }
 #page2 p{
   /*float: left;*/
   padding: 20px;
-  margin-left: 43%;
-  margin-top: 75px;
+  font-weight: bold;
+  margin-left: 430px;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 60px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  display: inline-block;
+}
+#page2 p:hover {
+  color: yellow;
 }
 #page2 input{
-  /*float: left;
-  margin-top: 40px;*/
-  margin-left: 45%;
+  /*float: left;*/
+  /*margin-left: 45%;*/
 
+}
+#page2 form{
+  display: inline-block;
+  padding-left: 20px;
 }
 #page2 #button1{
-
+  display: inline-block;
 }
+#page2 #button2{
+  display: inline-block;
+}
+#page2 #button3{
+ display: inline-block;
+}
+
 #page3 {
-  background-image: url("../images/sf.jpg");
+  background-image: url("../images/ggbridge.jpg");
   background-size: cover;
   background-size: 100%;
+  color: white;
+  margin-top: 240px;
+  margin-bottom: 100px;
+}
 
+#page3 h2{
+  /*margin-left: 40%;*/
+  text-align: center;
+  font-size: 80px;
+  margin-top: 150px;
+  margin-bottom: 120px;
+  margin: 0 auto;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  /*margin-bottom:*/
+  box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.9);
+  width: 600px;
+
+}
+#page3 h2:hover {
+  color: hotpink;
+}
+
+#page3 p{
+  /*float: left;*/
+  padding: 20px;
+  font-weight: bold;
+  margin-left: 540px;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 60px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  display: inline-block;
+}
+#page3 p:hover {
+  color: yellow;
+}
+#page3 input{
+  margin-left: 660px;
+}
+
+
+#page4 {
+  background-image: url("../images/ggbridge.jpg");
+  background-size: cover;
+  background-size: 100%;
+  color: white;
+}
+
+#page4 h2{
+  /*margin-left: 40%;*/
+  margin: 0 auto;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 80px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.9);
+  width: 600px;
+
+}
+#page4 h2:hover {
+  color: hotpink;
+}
+
+#page4 p{
+  /*float: left;*/
+  padding: 20px;
+  font-weight: bold;
+  margin-left: 510px;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 60px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  display: inline-block;
+}
+#page4 p:hover {
+  color: yellow;
+}
+#page4 input{
+  margin-left: 660px;
+}
+
+
+#page5 {
+  background-image: url("../images/ggbridge.jpg");
+  background-size: cover;
+  background-size: 100%;
+  color: white;
+  margin-top: 200px;
+}
+
+#page5 h2{
+  /*margin-left: 40%;*/
+  margin-top: 150px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 80px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.9);
+  width: 600px;
+
+}
+#page5 h2:hover {
+  color: hotpink;
+}
+
+#page5 p{
+  /*float: left;*/
+  padding: 20px;
+  font-weight: bold;
+  margin-left: 470px;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 60px;
+  font-family: 'Kurale', serif;
+  font-family: 'Stardos Stencil', cursive;
+  font-family: 'Londrina Outline', cursive;
+  display: inline-block;
+}
+#page5 p:hover {
+  color: yellow;
+}
+#page5 input{
+  margin-left: 660px;
 }
